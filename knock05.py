@@ -1,19 +1,19 @@
 # coding: utf-8
 # knock05.py
+
+def n_gram(input_str, N):
+	last = len(input_str) - N + 1
+	n_gram_list = []
+
+	for i in range(last):
+		n_gram_list.append(input_str[i:i+N])
+	
+	return n_gram_list
+
 if __name__ == '__main__':
 
 	string = "I am an NLPer"
-	str_list = string.split()
-	string = "$" + string + "$"
-	str_list = ["$"] + str_list + ["$"]
-	word_bi_gram = []
-	char_bi_gram = []
+	print(n_gram(string, 2))
+	string = string.split()
+	print(n_gram(string, 2))
 
-	for i in range(len(str_list)+1):
-		word_bi_gram.append(str_list[i:i+2])
-
-	for i in range(len(string)+1):
-		char_bi_gram.append(string[i:i+2])
-
-	print(word_bi_gram[1:len(str_list)-2])
-	print(char_bi_gram[1:len(string)-2])
